@@ -24,7 +24,7 @@ const Login = () => {
 
         <div className="topbar-actions">
           <button className="lang-btn" onClick={changeLanguage}>
-            {isArabic ? "English" : "العربية"}
+             🌐 {isArabic ? "English" : "العربية"}
           </button>
           <div className="login-help">{t("help")}</div>
         </div>
@@ -45,7 +45,9 @@ const Login = () => {
 
               <div className="password-label">
   <label>{t("password")}</label>
-  <a href="#">{t("forgotPassword")}</a>
+  <Link to="/forgot-password">
+  {t("forgotPassword")}
+</Link>
 </div>
 
               <div className="login-input-box">

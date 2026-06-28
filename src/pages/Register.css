@@ -40,14 +40,31 @@
 }
 
 .lang-btn {
-  background: transparent !important;
-  border: 1px solid #0b63f6 !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  background: #fff !important;
+  border: 1.5px solid #0b63f6 !important;
   color: #0b63f6 !important;
+
+  padding: 10px 18px;
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .lang-btn:hover {
-  background: #0b63f6 !important;
-  color: white !important;
+  background: #f0f6ff !important;
+  color: #0b63f6 !important;
+}
+
+.lang-btn svg {
+  font-size: 18px;
 }
 
 .register-main {

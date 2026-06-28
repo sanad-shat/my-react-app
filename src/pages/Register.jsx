@@ -1,3 +1,4 @@
+import { FiGlobe } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import googleLogo from "../assets/google.png";
 import microsoftLogo from "../assets/microsoft.png";
@@ -18,17 +19,18 @@ const Register = () => {
   return (
     <div className="register-page" dir={isArabic ? "rtl" : "ltr"}>
       <header className="topbar">
-        <div className="login-box">
-          <span>{t("loginQuestion")}</span>
+       <div className="login-box">
+  <span>{t("loginQuestion")}</span>
 
-          <Link to="/login" className="nav-btn">
-  {t("login")}
-</Link>
+  <Link to="/login" className="nav-btn">
+    {t("login")}
+  </Link>
 
-          <button className="lang-btn" onClick={changeLanguage}>
-            {isArabic ? "English" : "العربية"}
-          </button>
-        </div>
+  <button className="lang-btn" onClick={changeLanguage}>
+    <FiGlobe />
+    {isArabic ? "English" : "العربية"}
+  </button>
+</div>
 
         <div className="logo">SupportHub ✣</div>
       </header>
