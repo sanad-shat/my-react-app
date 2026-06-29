@@ -1,3 +1,4 @@
+import logo from "../assets/supporthub-logo.png";
 import { FiGlobe } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -13,8 +14,13 @@ const changeLanguage = () => {
   return (
     <div className="verify-page" dir={isArabic ? "rtl" : "ltr"}>
       <header className="verify-topbar">
-  <div className="verify-logo">SupportHub</div>
-
+<div className="verify-logo">
+  <img
+    src={logo}
+    alt="SupportHub Logo"
+    className="site-logo"
+  />
+</div>
   <div className="verify-actions-top">
     <button className="lang-btn" onClick={changeLanguage}>
       <FiGlobe />

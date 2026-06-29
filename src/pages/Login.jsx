@@ -1,5 +1,6 @@
+import logo from "../assets/supporthub-logo.png";
+import { useNavigate, Link } from "react-router-dom";
 import { FaHubspot } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { FiMail, FiLock, FiLogIn } from "react-icons/fi";
 import googleLogo from "../assets/google.png";
@@ -7,6 +8,7 @@ import microsoftLogo from "../assets/microsoft.png";
 import "./Login.css";
 
 const Login = () => {
+  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   const isArabic = i18n.language === "ar";
 
@@ -14,18 +16,29 @@ const Login = () => {
     i18n.changeLanguage(isArabic ? "en" : "ar");
   };
 
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    // لاحقاً سنربطه مع Backend
+    navigate("/customer-dashboard");
+  };
+
   return (
     <div className="login-page" dir={isArabic ? "rtl" : "ltr"}>
       <header className="login-topbar">
         <div className="login-logo">
-          <span>SupportHub</span>
-          <FaHubspot />
-        </div>
+  <img
+    src={logo}
+    alt="SupportHub Logo"
+    className="login-site-logo"
+  />
+</div>
 
         <div className="topbar-actions">
           <button className="lang-btn" onClick={changeLanguage}>
-             🌐 {isArabic ? "English" : "العربية"}
+            🌐 {isArabic ? "English" : "العربية"}
           </button>
+
           <div className="login-help">{t("help")}</div>
         </div>
       </header>
@@ -36,19 +49,21 @@ const Login = () => {
             <h1>{t("loginTitle")}</h1>
             <p>{t("loginSubtitle")}</p>
 
-            <form>
+            <form onSubmit={handleLogin}>
               <label>{t("email")}</label>
+
               <div className="login-input-box">
                 <FiMail className="login-input-icon" />
                 <input type="email" placeholder="example@supporthub.com" />
               </div>
 
               <div className="password-label">
-  <label>{t("password")}</label>
-  <Link to="/forgot-password">
-  {t("forgotPassword")}
-</Link>
-</div>
+                <label>{t("password")}</label>
+
+                <Link to="/forgot-password">
+                  {t("forgotPassword")}
+                </Link>
+              </div>
 
               <div className="login-input-box">
                 <FiLock className="login-input-icon" />
@@ -68,10 +83,11 @@ const Login = () => {
             </div>
 
             <div className="login-social-row">
-              <button>
+              <button type="button">
                 <img src={googleLogo} alt="Google" />
               </button>
-              <button>
+
+              <button type="button">
                 <img src={microsoftLogo} alt="Microsoft" />
               </button>
             </div>
@@ -100,14 +116,14 @@ const Login = () => {
 
       <footer className="login-footer">
         <div className="footer-links">
-          <a href="#">سياسة الخصوصية</a>
-          <a href="#">شروط الخدمة</a>
-          <a href="#">مركز المساعدة</a>
+          <a href="#">{t("privacy")}</a>
+          <a href="#">{t("terms")}</a>
+          <a href="#">{t("helpCenter")}</a>
         </div>
 
         <div className="footer-copy">
           <strong>SupportHub</strong>
-          <span>© 2026 SupportHub. جميع الحقوق محفوظة.</span>
+          <span>{t("footer")}</span>
         </div>
       </footer>
     </div>

@@ -5,86 +5,98 @@ i18n.use(initReactI18next).init({
   resources: {
     ar: {
       translation: {
-        // Register Page
         createAccount: "إنشاء حساب جديد",
         subtitle: "ابدأ رحلتك في التميز التقني اليوم",
-
         fullName: "الاسم الكامل",
         fullNamePlaceholder: "أدخل اسمك بالكامل",
-
         email: "البريد الإلكتروني",
         password: "كلمة المرور",
         confirmPassword: "تأكيد كلمة المرور",
-
-        agree:
-          "أوافق على شروط الخدمة و سياسة الخصوصية الخاصة بـ SupportHub.",
-
+        agree: "أوافق على شروط الخدمة و سياسة الخصوصية الخاصة بـ SupportHub.",
         submit: "إنشاء حساب",
         or: "أو التسجيل عبر",
-
         loginQuestion: "هل لديك حساب بالفعل؟",
         login: "تسجيل الدخول",
-
         joinTitle: "انضم إلى مجتمع الخبراء",
         joinText:
           "قم بإدارة تذاكر الدعم الخاصة بك بكفاءة عالية وسرعة استجابة فائقة من خلال منصة SupportHub المتطورة.",
-
         footer: "© 2026 SupportHub. جميع الحقوق محفوظة.",
 
-        // Login Page
         help: "مساعدة",
-
         loginTitle: "تسجيل الدخول",
         loginSubtitle: "أدخل تفاصيل حسابك للمتابعة",
-
         heroLoginTitle: "إدارة الدعم الفني",
         heroLoginHighlight: "بذكاء وكفاءة",
-
         heroLoginText:
           "مرحباً بك مجدداً في نظام SupportHub. يرجى تسجيل الدخول للوصول إلى لوحة التحكم الخاصة بك ومتابعة طلبات الدعم الفني المعلقة.",
-
         forgotPassword: "نسيت كلمة المرور؟",
         orLogin: "أو الدخول عبر",
-
         noAccount: "ليس لديك حساب؟",
         createNewAccount: "إنشاء حساب جديد",
 
-        // Forgot Password Page
         forgotPageTitle: "نسيت كلمة المرور؟",
         forgotPageSubtitle:
           "أدخل بريدك الإلكتروني المسجل لدينا وسنرسل لك رمز المتابعة.",
-
         sendCode: "إرسال رمز التحقق",
-
         recoverTitle: "استعد السيطرة على حسابك",
         recoverText:
           "لا تقلق، يحدث هذا للجميع. أدخل بريدك الإلكتروني وسنقوم بإرسال رمز تحقق لتتمكن من إعادة تعيين كلمة المرور الخاصة بك بأمان.",
-
         backToLogin: "العودة لتسجيل الدخول",
         supportContact: "تواصل مع الدعم",
         faq: "الأسئلة الشائعة",
         emailHint: "تأكد من استخدام بريد العمل الخاص بك.",
 
-        // Verify Code Page
         back: "الرجوع",
         verifyTitle: "أدخل رمز التحقق",
         verifySubtitle:
           "لقد أرسلنا رمزاً مكوناً من 6 أرقام إلى بريدك الإلكتروني",
         verifySubtitleEnd:
           "يرجى التحقق من صندوق الوارد أو البريد العشوائي.",
-
         confirmCode: "تأكيد الرمز",
         noCode: "لم يصلك الرمز؟",
         resendCode: "إعادة إرسال الرمز",
-
         verifyProblem: "تواجه مشكلة؟ تواصل مع",
-        technicalSupport: "فريق الدعم الفني",
-
+        technicalSupport: "الدعم التقني",
         emailConfirm: "تأكيد الهوية",
         emailConfirmText:
           "نقوم بتأمين حسابك عبر التحقق من البريد الإلكتروني بخطوة بسيطة.",
 
-        // Footer
+        myTickets: "تذاكري",
+        completedActivity: "النشاط المكتمل",
+        knowledgeBase: "قاعدة المعرفة",
+        searchTickets: "البحث في التذاكر...",
+        customerName: "أحمد محمد",
+        premiumCustomer: "عميل مميز",
+        createTicket: "إنشاء تذكرة جديدة",
+        ticketHint: "سنقوم بالرد عليك في أقرب وقت ممكن",
+        responsibleDepartment: "القسم المسؤول",
+        accounting: "المحاسبة",
+        customers: "العملاء",
+        priority: "درجة الأهمية",
+        high: "عالية",
+        medium: "متوسطة",
+        low: "عادية",
+        problemDetails: "تفاصيل المشكلة",
+        problemPlaceholder: "اكتب ما يواجهك هنا...",
+        uploadFiles: "إرفاق المستندات أو الصور",
+        sendRequest: "إرسال الطلب الآن",
+        supportDashboard: "لوحة معلومات الدعم",
+        dashboardSubtitle: "مرحباً أحمد، لديك 3 تذاكر قيد المتابعة حالياً.",
+        ticketList: "قائمة التذاكر",
+        department: "القسم",
+        lastUpdate: "آخر تحديث",
+        open: "مفتوحة",
+        processing: "قيد المعالجة",
+        done: "تم الحل",
+        loadMoreTickets: "تحميل المزيد من التذاكر",
+loginIssue: "مشكلة في تسجيل الدخول للحساب",
+refundRequest: "طلب استرجاع مبلغ مالي",
+profileUpdate: "تحديث بيانات الملف الشخصي",
+
+hours2: "ساعتين",
+yesterday: "أمس",
+days3: "3 أيام",
+now: "الآن",
         helpCenter: "مركز المساعدة",
         terms: "شروط الخدمة",
         privacy: "سياسة الخصوصية",
@@ -93,86 +105,98 @@ i18n.use(initReactI18next).init({
 
     en: {
       translation: {
-        // Register Page
         createAccount: "Create New Account",
         subtitle: "Start your journey to technical excellence today",
-
         fullName: "Full Name",
         fullNamePlaceholder: "Enter your full name",
-
         email: "Email Address",
         password: "Password",
         confirmPassword: "Confirm Password",
-
         agree:
           "I agree to the Terms of Service and Privacy Policy of SupportHub.",
-
         submit: "Create Account",
         or: "Or sign up with",
-
         loginQuestion: "Already have an account?",
         login: "Login",
-
         joinTitle: "Join the Experts Community",
         joinText:
           "Manage your support tickets efficiently and quickly through the advanced SupportHub platform.",
-
         footer: "© 2026 SupportHub. All rights reserved.",
 
-        // Login Page
         help: "Help",
-
         loginTitle: "Login",
         loginSubtitle: "Enter your account details to continue",
-
         heroLoginTitle: "Manage Technical Support",
         heroLoginHighlight: "Smartly & Efficiently",
-
         heroLoginText:
           "Welcome back to SupportHub. Please sign in to access your dashboard and manage pending support tickets.",
-
         forgotPassword: "Forgot Password?",
         orLogin: "Or sign in with",
-
         noAccount: "Don't have an account?",
         createNewAccount: "Create New Account",
 
-        // Forgot Password Page
         forgotPageTitle: "Forgot Password?",
         forgotPageSubtitle:
           "Enter your registered email address and we will send you a verification code.",
-
         sendCode: "Send Verification Code",
-
         recoverTitle: "Regain Control of Your Account",
         recoverText:
           "Don't worry, it happens to everyone. Enter your email address and we will send a verification code so you can safely reset your password.",
-
         backToLogin: "Back to Login",
         supportContact: "Contact Support",
         faq: "FAQ",
         emailHint: "Make sure to use your work email address.",
 
-        // Verify Code Page
         back: "Back",
         verifyTitle: "Enter Verification Code",
-        verifySubtitle:
-          "We sent a 6-digit code to your email address",
-        verifySubtitleEnd:
-          "Please check your inbox or spam folder.",
-
+        verifySubtitle: "We sent a 6-digit code to your email address",
+        verifySubtitleEnd: "Please check your inbox or spam folder.",
         confirmCode: "Confirm Code",
         noCode: "Didn't receive the code?",
         resendCode: "Resend Code",
-
         verifyProblem: "Having trouble? Contact",
         technicalSupport: "Technical Support",
-
         emailConfirm: "Identity Verification",
         emailConfirmText:
           "We secure your account by verifying your email in one simple step.",
 
-        // Footer
+        myTickets: "My Tickets",
+        completedActivity: "Completed Activity",
+        knowledgeBase: "Knowledge Base",
+        searchTickets: "Search tickets...",
+        customerName: "Ahmed Mohammed",
+        premiumCustomer: "Premium Customer",
+        createTicket: "Create New Ticket",
+        ticketHint: "We will respond as soon as possible",
+        responsibleDepartment: "Responsible Department",
+        accounting: "Accounting",
+        customers: "Customers",
+        priority: "Priority",
+        high: "High",
+        medium: "Medium",
+        low: "Low",
+        problemDetails: "Problem Details",
+        problemPlaceholder: "Describe your issue here...",
+        uploadFiles: "Attach documents or images",
+        sendRequest: "Submit Request Now",
+        supportDashboard: "Support Dashboard",
+        dashboardSubtitle:
+          "Welcome Ahmed, you currently have 3 tickets in progress.",
+        ticketList: "Ticket List",
+        department: "Department",
+        lastUpdate: "Last Update",
+        open: "Open",
+        processing: "Processing",
+        done: "Resolved",
+        loadMoreTickets: "Load More Tickets",
+loginIssue: "Login account issue",
+refundRequest: "Refund request",
+profileUpdate: "Update profile information",
+
+hours2: "2 hours ago",
+yesterday: "Yesterday",
+days3: "3 days ago",
+now: "Now",
         helpCenter: "Help Center",
         terms: "Terms of Service",
         privacy: "Privacy Policy",

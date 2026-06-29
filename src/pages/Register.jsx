@@ -1,3 +1,4 @@
+import logo from "../assets/supporthub-logo.png";
 import { FiGlobe } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import googleLogo from "../assets/google.png";
@@ -32,7 +33,13 @@ const Register = () => {
   </button>
 </div>
 
-        <div className="logo">SupportHub ✣</div>
+<div className="register-logo">
+  <img
+    src={logo}
+    alt="SupportHub Logo"
+    className="site-logo"
+  />
+</div>
       </header>
 
       <main className="register-main">
@@ -135,10 +142,9 @@ const Register = () => {
           <a href="#">مركز المساعدة</a>
         </div>
 
-        <div className="footer-copy">
-          <strong>SupportHub ✣</strong>
-          <span>© 2026 SupportHub. جميع الحقوق محفوظة.</span>
-        </div>
+        
+
+        
       </footer>
     </div>
   );

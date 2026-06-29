@@ -328,3 +328,8 @@
     align-items: center;
   }
 }
+.login-site-logo {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+}

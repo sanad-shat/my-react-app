@@ -1,3 +1,4 @@
+import logo from "../assets/supporthub-logo.png";
 import { FiGlobe } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -20,10 +21,13 @@ const changeLanguage = () => {
   return (
     <div className="forgot-page" dir={isArabic ? "rtl" : "ltr"}>
       <header className="forgot-topbar">
-  <div className="forgot-logo">
-    <span>SupportHub</span>
-    <FaHubspot />
-  </div>
+ <div className="login-logo">
+  <img
+    src={logo}
+    alt="SupportHub Logo"
+    className="site-logo"
+  />
+</div>
 
   <div className="forgot-actions-top">
 
