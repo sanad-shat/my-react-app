@@ -19,7 +19,6 @@ const TicketList = ({ tickets }) => {
 
       <div className="list-toolbar">
         <h3>{t("ticketList")}</h3>
-
         <div>
           <FiGrid />
           <FiList />
@@ -31,30 +30,17 @@ const TicketList = ({ tickets }) => {
           <div className="ticket-item" key={ticket.id}>
             <div className="ticket-main-info">
               <span className={`status ${ticket.status}`}>
-                {statusText[ticket.status]}
+                {statusText[ticket.status] || ticket.status}
               </span>
 
-              <span className="ticket-id">
-                #{ticket.id}
-              </span>
+              <span className="ticket-id">#{ticket.id}</span>
 
-              <h4>
-                {ticket.titleKey
-                  ? t(ticket.titleKey)
-                  : ticket.title}
-              </h4>
+              <h4>{ticket.title}</h4>
             </div>
 
             <div className="ticket-meta">
-              <span>
-                {t("department")}:{" "}
-                {t(ticket.departmentKey)}
-              </span>
-
-              <span>
-                {t("lastUpdate")}:{" "}
-                {t(ticket.updatedKey)}
-              </span>
+              <span>{t("department")}: {ticket.department}</span>
+              <span>{t("lastUpdate")}: {new Date(ticket.created_at).toLocaleDateString()}</span>
             </div>
 
             <FiChevronLeft />
@@ -62,9 +48,7 @@ const TicketList = ({ tickets }) => {
         ))}
       </div>
 
-      <button className="load-more">
-        {t("loadMoreTickets")}
-      </button>
+      <button className="load-more">{t("loadMoreTickets")}</button>
     </section>
   );
 };

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FiPlus, FiUpload, FiSend } from "react-icons/fi";
+import { supabase } from "../lib/supabase";
 
-const TicketForm = ({ onAddTicket }) => {
+const TicketForm = ({ onTicketCreated }) => {
   const { t } = useTranslation();
 
   const [form, setForm] = useState({
@@ -11,18 +12,35 @@ const TicketForm = ({ onAddTicket }) => {
     description: "",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!form.description.trim()) return;
 
-    onAddTicket(form);
+    const { error } = await supabase.from("tickets").insert([
+      {
+        title: form.description.slice(0, 40),
+        description: form.description,
+        department: form.department,
+        priority: form.priority,
+        status: "open",
+        customer_name: "Customer",
+      },
+    ]);
+
+    if (error) {
+      console.error(error);
+      alert("Error while saving ticket");
+      return;
+    }
 
     setForm({
       department: t("technicalSupport"),
       priority: "medium",
       description: "",
     });
+
+    if (onTicketCreated) onTicketCreated();
   };
 
   return (
@@ -39,9 +57,7 @@ const TicketForm = ({ onAddTicket }) => {
         <label>{t("responsibleDepartment")}</label>
         <select
           value={form.department}
-          onChange={(e) =>
-            setForm({ ...form, department: e.target.value })
-          }
+          onChange={(e) => setForm({ ...form, department: e.target.value })}
         >
           <option>{t("technicalSupport")}</option>
           <option>{t("accounting")}</option>
@@ -50,27 +66,13 @@ const TicketForm = ({ onAddTicket }) => {
 
         <label>{t("priority")}</label>
         <div className="priority-row">
-          <button
-            type="button"
-            className={form.priority === "high" ? "active" : ""}
-            onClick={() => setForm({ ...form, priority: "high" })}
-          >
+          <button type="button" className={form.priority === "high" ? "active" : ""} onClick={() => setForm({ ...form, priority: "high" })}>
             {t("high")}
           </button>
-
-          <button
-            type="button"
-            className={form.priority === "medium" ? "active" : ""}
-            onClick={() => setForm({ ...form, priority: "medium" })}
-          >
+          <button type="button" className={form.priority === "medium" ? "active" : ""} onClick={() => setForm({ ...form, priority: "medium" })}>
             {t("medium")}
           </button>
-
-          <button
-            type="button"
-            className={form.priority === "low" ? "active" : ""}
-            onClick={() => setForm({ ...form, priority: "low" })}
-          >
+          <button type="button" className={form.priority === "low" ? "active" : ""} onClick={() => setForm({ ...form, priority: "low" })}>
             {t("low")}
           </button>
         </div>
@@ -79,9 +81,7 @@ const TicketForm = ({ onAddTicket }) => {
         <textarea
           placeholder={t("problemPlaceholder")}
           value={form.description}
-          onChange={(e) =>
-            setForm({ ...form, description: e.target.value })
-          }
+          onChange={(e) => setForm({ ...form, description: e.target.value })}
         />
 
         <div className="upload-box">

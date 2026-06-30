@@ -1,6 +1,7 @@
 import logo from "../assets/supporthub-logo.png";
 import { useNavigate, Link } from "react-router-dom";
 import { FaHubspot } from "react-icons/fa";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FiMail, FiLock, FiLogIn } from "react-icons/fi";
 import googleLogo from "../assets/google.png";
@@ -12,27 +13,36 @@ const Login = () => {
   const { t, i18n } = useTranslation();
   const isArabic = i18n.language === "ar";
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const changeLanguage = () => {
     i18n.changeLanguage(isArabic ? "en" : "ar");
   };
 
+  // تسجيل دخول تجريبي
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // لاحقاً سنربطه مع Backend
+    console.log("Login clicked");
+
+    // الانتقال مباشرة إلى الداشبورد
     navigate("/customer-dashboard");
+
+    // إذا لم يعمل navigate استخدم السطر التالي بدلاً منه:
+    // window.location.href = "/customer-dashboard";
   };
 
   return (
     <div className="login-page" dir={isArabic ? "rtl" : "ltr"}>
       <header className="login-topbar">
         <div className="login-logo">
-  <img
-    src={logo}
-    alt="SupportHub Logo"
-    className="login-site-logo"
-  />
-</div>
+          <img
+            src={logo}
+            alt="SupportHub Logo"
+            className="login-site-logo"
+          />
+        </div>
 
         <div className="topbar-actions">
           <button className="lang-btn" onClick={changeLanguage}>
@@ -54,7 +64,14 @@ const Login = () => {
 
               <div className="login-input-box">
                 <FiMail className="login-input-icon" />
-                <input type="email" placeholder="example@supporthub.com" />
+
+                <input
+                  type="email"
+                  placeholder="example@supporthub.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
               </div>
 
               <div className="password-label">
@@ -67,13 +84,28 @@ const Login = () => {
 
               <div className="login-input-box">
                 <FiLock className="login-input-icon" />
-                <input type="password" placeholder="••••••••" />
+
+                <input
+                  type="password"
+                  placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
               </div>
 
-              <button className="login-submit" type="submit">
-                <FiLogIn />
-                {t("login")}
-              </button>
+             <button
+  className="login-submit"
+  type="button"
+  onClick={() => {
+    console.log("Clicked");
+    window.location.href = "/customer-dashboard";
+  }}
+>
+  <FiLogIn />
+  {t("login")}
+</button>
+
             </form>
 
             <div className="login-divider">
@@ -94,7 +126,9 @@ const Login = () => {
 
             <p className="create-account">
               {t("noAccount")}{" "}
-              <Link to="/register">{t("createNewAccount")}</Link>
+              <Link to="/register">
+                {t("createNewAccount")}
+              </Link>
             </p>
           </section>
 

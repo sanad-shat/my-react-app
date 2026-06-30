@@ -1,3 +1,4 @@
+import AgentDashboard from "./pages/AgentDashboard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Register from "./pages/Register";
@@ -16,6 +17,7 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/verify-code" element={<VerifyCode />} />
         <Route path="/customer-dashboard" element={<CustomerDashboard />} />
+        <Route path="/agent-dashboard" element={<AgentDashboard />} />
       </Routes>
     </BrowserRouter>
   );

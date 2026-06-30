@@ -368,3 +368,9 @@ form label {
   padding: 9px 26px;
   border-radius: 4px;
 }
+.form-message {
+  margin: 0 0 14px;
+  color: #ef4444;
+  font-size: 13px;
+  font-weight: 600;
+}

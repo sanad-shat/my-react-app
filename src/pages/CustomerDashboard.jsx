@@ -1,62 +1,57 @@
-import { useState } from "react";
+import { Link } from "react-router-dom";
+import { MdSupportAgent } from "react-icons/md";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import CustomerHeader from "../components/CustomerHeader";
 import TicketForm from "../components/TicketForm";
 import TicketList from "../components/TicketList";
+import { supabase } from "../lib/supabase";
 import "./CustomerDashboard.css";
-
 
 const CustomerDashboard = () => {
   const { i18n } = useTranslation();
   const isArabic = i18n.language === "ar";
 
-  const [tickets, setTickets] = useState([
-    {
-      id: "SH-8291",
-      titleKey: "loginIssue",
-      departmentKey: "technicalSupport",
-      status: "open",
-      priority: "medium",
-      updatedKey: "hours2",
-    },
-    {
-      id: "SH-7542",
-      titleKey: "refundRequest",
-      departmentKey: "accounting",
-      status: "processing",
-      priority: "high",
-      updatedKey: "yesterday",
-    },
-    {
-      id: "SH-6120",
-      titleKey: "profileUpdate",
-      departmentKey: "customers",
-      status: "done",
-      priority: "low",
-      updatedKey: "days3",
-    },
-  ]);
+  const [tickets, setTickets] = useState([]);
 
-  const addTicket = (ticket) => {
-    const newTicket = {
-      id: `SH-${Math.floor(1000 + Math.random() * 9000)}`,
-      title: ticket.description || "",
-      departmentKey: ticket.departmentKey || "technicalSupport",
-      status: "open",
-      priority: ticket.priority,
-      updatedKey: "now",
-    };
+  const fetchTickets = async () => {
+    const { data, error } = await supabase
+      .from("tickets")
+      .select("*")
+      .order("created_at", { ascending: false });
 
-    setTickets([newTicket, ...tickets]);
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    setTickets(data);
   };
+
+  useEffect(() => {
+    fetchTickets();
+  }, []);
 
   return (
     <div className="customer-page" dir={isArabic ? "rtl" : "ltr"}>
       <CustomerHeader />
 
       <main className="customer-main">
-        <TicketForm onAddTicket={addTicket} />
+        <TicketForm onTicketCreated={fetchTickets} />
+
         <TicketList tickets={tickets} />
+
+        <div className="support-agent-wrapper">
+          <Link
+            to="/agent-dashboard"
+            className="support-link"
+          >
+            <MdSupportAgent />
+            <span>
+              {isArabic ? "الدعم الفني" : "Technical Support"}
+            </span>
+          </Link>
+        </div>
       </main>
     </div>
   );
