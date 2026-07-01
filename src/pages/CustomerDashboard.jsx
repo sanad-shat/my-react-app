@@ -25,7 +25,8 @@ const CustomerDashboard = () => {
       return;
     }
 
-    setTickets(data);
+setTickets(data || []);
+console.log("Fetched tickets:", data?.length);
   };
 
   useEffect(() => {

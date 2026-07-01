@@ -282,10 +282,9 @@
 }
 
 .status.open {
-  background: #fee2e2;
-  color: #ef4444;
+  background: #d1fae5;
+  color: #059669;
 }
-
 .status.processing {
   background: #fef3c7;
   color: #d97706;
@@ -437,4 +436,59 @@
 .support-link:hover {
   background: #1d4ed8;
   transform: translateY(-3px);
+}
+.ticket-main-info {
+  min-width: 0;
+}
+
+.ticket-main-info h4 {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  line-height: 1.8;
+  word-break: break-word;
+}
+
+.ticket-item {
+  grid-template-columns: minmax(0, 1fr) auto auto;
+}
+.ticket-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.ticket-main-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.ticket-main-info h4 {
+  width: 100%;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
+  word-break: break-word;
+  line-height: 1.8;
+  margin-top: 10px;
+}
+.agent-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #0b63f6;
+  margin-bottom: 35px;
+}
+
+.agent-logo svg {
+  font-size: 42px;
+}
+
+.agent-logo h1 {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 800;
+  color: #0b63f6;
 }
